@@ -9,9 +9,10 @@ RSpec.describe ApplicationController, type: :controller do
 
   describe 'loading the current_user' do
     it 'assigns @current_user according to the cookie' do
-      request.cookies['current_user'] = 'foo'
+      current_user = CurrentUser.new(name: 'foo')
+      request.cookies['current_user_name'] = current_user.name
       get :index
-      expect(assigns(:current_user)).to eq 'foo'
+      expect(assigns(:current_user)).to eq current_user
     end
   end
 

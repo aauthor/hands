@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
   def assign_current_user
-    @current_user = cookies[:current_user]
+    @current_user = CurrentUser.new(name: cookies[:current_user_name])
   end
 
 end
