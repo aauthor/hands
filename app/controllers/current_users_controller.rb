@@ -9,7 +9,7 @@ class CurrentUsersController < ApplicationController
   private
 
   def current_user_params
-    params.require(:current_user).permit(:name).symbolize_keys
+    params.require(:current_user).permit(:name)
   end
 
 end
